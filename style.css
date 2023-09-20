@@ -1,0 +1,698 @@
+/* Custom styles for Ben's portfolio website. 
+Not copy and pasted, but built from scratch from W3Schools and internet tutorials. */
+
+/* Allows for smooth transitions when clicking the links */
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    letter-spacing: 1px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h2 {
+    letter-spacing: 0.3px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h3 {
+    letter-spacing: 0.3px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+h4 {
+    letter-spacing: 0.3px;
+    font-size:25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+p {
+    letter-spacing: 0.3px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+/* Settings for the entire page body */
+body {
+    background-color: black;
+    flex:1;
+    margin: 0;
+}
+
+.row {
+    padding:40px
+}
+
+/* Navbar settings */
+nav {
+    /* Different blur effect code for webkit-based (Safari) browsers and Chrome-based (blink engine) browsers. */
+    -webkit-backdrop-filter:blur(10px) saturate(180%);
+    backdrop-filter: blur(10px) saturate(180%);
+    background-color:rgba(36, 36, 36,0.6);
+    position: fixed;
+    width: 100%;
+    height:60px;
+    box-shadow: 0 7px 15px rgba(0,0,0,0.75);
+    z-index:100;
+    /* Animation? */
+    transition: 0.5s ease-in-out;
+}
+
+.logo {
+    font-family: CursiveLogo;
+    text-shadow: 0 8px 8px rgba(0,0,0,0.4);
+    padding-right:8px;
+    margin-top:-8px;
+    font-size:28px 
+}
+
+nav ul li a:hover{
+    color:#e1e1e1;
+    transition:0.3s ease-in-out;
+}
+
+nav box-icon {
+    display:none;
+}
+
+/* Text settings for navbar */
+nav a {
+    float: left;
+    color:whitesmoke;
+    text-align:center;
+    padding:20px;
+    padding-block:8px;
+    text-decoration: none;
+    font-size:14px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+nav b {
+    float: left;
+    color:white;
+    text-align:center;
+    padding:20px;
+    cursor: pointer;
+    padding-block:8px;
+    text-decoration: none;
+    font-size:14px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* On hover interaction on navbar - this doesn't work for now. */
+/* nav ul li a:hover {
+    background-color: #4a4a4a;
+    border-radius:10px;
+} */
+
+/* Hero image settings */
+.hero {
+    width: 100%;
+    height:100dvh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow:1;
+    z-index: -1;
+    
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background: url(https://lh3.googleusercontent.com/pw/AJFCJaVKJOz2wXiuzn5RWFlee0zUu2LMfZMvMiJOGTFJ9kVHreBbpdT6MOx0k-ShvWvqIuWV0yXNfZcvV-ndSWnO6PAeboksxoELFRZ25_ML8RzxViuynXCi1HnTojjwGgS9leM-BZsJ9QR9dC4UzZXsg4crsw=w1498-h1996-s-no?authuser=0);
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center center;
+    /* This causes major lag on Safari if it's anything but 100% or 0% ever since setting the background-attachment to fixed. (for the parallax effect */
+    filter: brightness(100%);
+}
+
+.arrow_container {
+    position:relative;
+    width: 24px;
+    height:24px;
+    margin: 0px auto;
+}
+
+/* Chevron (for scroll down section) */
+.chevron {
+    position: absolute;
+    width:96px;
+    /* margin-left: -30px; */
+    left:-95%;
+    height:12px;
+    transform: scale3d(0.5,0.5,0.5);
+    animation: move 3s ease-out infinite;
+}
+
+.chevron:before,
+.chevron:after {
+    content:'';
+    position:absolute;
+    top:0;
+    height: 40%;
+    width:50%;
+    background: #fff;
+}
+
+.chevron:before {
+    left:0;
+    transform: skew(0deg,30deg);
+}
+
+.chevron:after {
+    right: 0;
+    width: 50%;
+    transform: skew(0deg, -30deg);
+}
+
+.chevron:first-child {
+    animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+}
+
+.scroll-trigger {
+    display:none;
+}
+
+.herotext {
+    display:block;
+    margin-top: 75px;
+    margin-left:-42px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: .65;
+    animation: pulse 2s linear alternate infinite;
+    cursor:pointer;
+}
+
+@keyframes pulse {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes move {
+    25% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    67% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    position:relative;
+}
+
+.hero-title {
+    color: white;
+    text-align:center;
+    font-size:120px;
+    margin-left:5%;
+    margin-top:5%;
+    font-family: CursiveLogo;
+    width:90%;
+    text-shadow: 0 8px 8px rgba(0,0,0,0.6);
+}
+
+/* Slideshow settings */
+.slideshow-container {
+    position:relative;
+    width:100%;
+    background-color:black;
+    margin:5% auto;
+    display:block;
+}
+
+.slide {
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    /* height:200px; */
+}
+
+/* Slideshow buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    /* This centers it pretty closely to the middle of the photo. */
+    top: 40%;
+    padding: 16px;
+    color: rgba(229, 229, 229, 0.8);
+    font-weight:bold;
+    /* Sets black background for buttons */
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 40px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+.prev {
+    left:0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    /* padding-right:432px; */
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.6)
+}
+
+.slideimg {
+    max-height:100%;
+    width:auto;
+    display:block;
+}
+
+.slide-content {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:80vh;
+}
+
+.slide-info {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:1vh;
+}
+
+.text {
+    color: white;
+    font-size:19px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* This is what makes the text centered below the images - very specific value!  */
+    /* padding-left:95px; */
+    width: auto;
+    text-align:center;
+}
+
+/* Settings for the 1/5,2/5, etc.  */
+.numbertext {
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:20px;
+    padding: 8px 12px;
+    position: relatiev;
+    top: 0;
+}
+
+/* Dots for image navigation */
+.dot1 {
+    cursor:pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display:inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot2 {
+    cursor:pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display:inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+svg {
+    display: block;
+    width:100%;
+    height:60px;
+    outline:none !important;
+    background:rgb(18, 55, 85);
+}
+
+.svg-gray {
+    display: block;
+    width: 100%;
+    height:150px;
+    outline:none !important;
+    background:rgb(205, 211, 219);
+}
+
+.svg-black {
+    display:block;
+    width:100%;
+    height:150px;
+    background:black;
+}
+
+.spacer {
+    margin-bottom:20px;
+}
+
+/* Flexible container settings */
+flex-container {
+    flex:0.5;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:flex-start;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* margin-top:50px; */
+    padding-left:20px;
+    padding-right:20px;
+}
+
+flex-container-black {
+    display:flex;
+    background-color:black;
+    flex-wrap: wrap;
+    width:auto;
+    justify-content: center;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 40px ;
+    /* padding-left:100px; */
+    padding-right:10px;
+}
+flex-container-gray {
+    display:flex;
+    background-color:rgb(205, 211, 219);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 20px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:40px;
+}
+paper {
+    display:block;
+    background-color:white;
+    padding-left: 50px;
+    box-shadow: 0 0px 34px rgba(0,0,0,0.7);
+    padding-right:50px;
+    padding-bottom:50px;
+}
+
+flex-container-blue {
+    display:flex;
+    background-color:rgb(18, 55, 85);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 30px;
+    width:auto;
+    padding-bottom: 40px;
+    padding-left:50px;
+    padding-right:50px;
+
+}
+
+ul {
+    list-style-type: none;
+    overflow:hidden;
+    position:sticky;
+    height:70px;
+    width: auto;
+}
+
+paper ul {
+    list-style-type:circle;
+}
+
+paper p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+paper li {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+div {
+    /* border: 1px solid rgb(187, 187, 187); */
+    padding: 5px;
+    flex-grow:1;
+}
+
+/* Settings for the Contact Me form */
+form-container {
+    border-radius:30px;
+    background-color:rgb(213, 213, 213);
+    box-shadow: 0 0px 32px rgba(0,0,0,0.7);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Contact Me section settings */
+
+input[type=text],select,textarea {
+    width:100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius:8px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+}
+
+input[type=submit] {
+    background-color: #ff3838d5;
+    color:white;
+    padding: 20px 50px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.4);
+}
+
+input [type=submit]:hover {
+    background-color: #f2f2f2;
+    padding:20px;
+}
+
+/* CSS for the hidden/shown animations */
+.hidden {
+    opacity: 0;
+    filter:blur(5px);
+    transition: all 0.5s;
+    transform: translateX(-25%)
+}
+
+.show {
+    opacity:1;
+    transform: translateX(0);
+    filter:blur(0);
+}
+
+/* Cursive for logo */
+@font-face {
+    font-family: 'CursiveLogo'; 
+    src: url('/LemonJelly.ttf') format('woff2')
+}
+
+/* Footer icons */
+
+.fa {
+    padding:15px;
+    font-size: 30px;
+    width:15px;
+    text-align:center;
+    text-decoration: none;
+    border-radius:50%;
+    margin-left: 10px;
+}
+
+.fa:hover {
+    opacity:0.7;
+}
+
+.fa-facebook {
+    background: rgb(12 137 239);
+    color:white;
+}
+
+.fa-linkedin {
+    background: rgb(10 102 194);
+    color:white;
+}
+.fa-youtube {
+    background: rgb(236 34 0);
+    color:white;
+}
+.fa-github {
+    background: rgb(114 64 201);
+    color:white;
+}
+
+.social-container {
+    text-align:center;
+    padding:10px;
+    padding-bottom:30px;
+}
+
+#scroll-radio:checked ~ #Projects {
+    scroll-margin-top:200px;
+}
+
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- */
+/* CSS for website if it's being used on the phone */
+/* -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- */
+
+@media only screen and (max-width: 800px) {
+    /* Slideshow settings */
+.slideshow-container {
+    position:relative;
+    width:100%;
+    max-width:240px;
+    background-color:black;
+    margin:5% auto;
+    display:block;
+}
+
+.menu-toggle {
+    display:flex;
+}
+
+nav {
+    flex-direction:column;
+    position: absolute;
+    top:0px;
+    width:100%;
+}
+
+nav.active {
+    display:flex;
+}
+
+nav b{
+    padding:10px;
+}
+
+nav a {
+    display:none;
+    padding: 7px 5px;
+    font-size:16px;
+    transition: background-color 0.3s;
+    background-color:rgba(206, 206, 206, 0.182);
+    border-radius:10px;
+}
+
+nav li {
+    padding:0px 0px;
+    margin:0;
+}
+
+nav ul.active {
+    display:block;
+}
+
+nav ul li:hover {
+    background-color:#949494;
+}
+
+nav box-icon {
+    display:block;
+    position:absolute;
+    top:-4px;
+    right:38px;
+}
+
+.arrow_container {
+    height:180px;
+}
+
+/* This makes the next arrow in line for the mobile version */
+.next {
+    right: 0;
+    padding-right: 20px;
+    border-radius: 3px 0 0 3px;
+}
+
+flex-container-black {
+    padding-top:20px;
+}
+
+flex-container {
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.hero {
+    width: 100%;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    flex-grow:1;
+    z-index: -1;
+}
+.hero-title {
+    margin-top:35%;
+}
+
+/* background-attachment:fixed is NOT supported in iOS. This is why the parallax effect doesn't work on iPhone while it works on desktop.  */
+.hero::before {
+    background-attachment:scroll;
+    background-size:cover;
+}
+
+form-container{
+    padding-left:0px;
+    padding-right:0px;
+}
+
+flex-container-blue {
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.slideimg {
+    max-height:500px;
+}
+
+}
