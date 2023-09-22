@@ -465,7 +465,7 @@ ul {
     list-style-type: none;
     overflow:hidden;
     position:sticky;
-    height:70px;
+    /* height:70px; */
     width: auto;
 }
 
